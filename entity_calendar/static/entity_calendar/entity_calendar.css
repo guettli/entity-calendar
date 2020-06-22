@@ -1,0 +1,23 @@
+table {
+  border-collapse: collapse;
+}
+
+.day_heading {
+    width: 2em;
+    text-align: right;
+}
+.is_first {
+    border-left: 1px solid black;
+}
+
+.x_cell {
+    text-align: center;
+}
+
+tr.entity_row:nth-child(odd) {
+  background-color: #f2f2f2;
+}
+
+.entity_name {
+    text-align: left;
+    }
