@@ -26,8 +26,9 @@ def period_and_entity_view(request, pk):
 
     cells = []
     for day, is_first in view.days():
-        cells.append(format_html('<td class="day_heading {}">{}<br>{}</td>',
+        cells.append(format_html('<td class="day_heading {} {}">{}<br>{}</td>',
                                  'is_first' if is_first else '',
+                                 'is_weekend' if day.weekday() in [5, 6] else '',
                                  day.month, day.day))
     rows.append(format_html('<tr><td>Month<br>Day</td>{}</tr>', join(cells)))
 
@@ -38,8 +39,9 @@ def period_and_entity_view(request, pk):
             char = ''
             if entity.day_is_in_one_range(day):
                 char = 'X'
-            cells.append(format_html('<td class="day {} x_cell">{}</td>',
+            cells.append(format_html('<td class="day {} {} x_cell">{}</td>',
                                      'is_first' if is_first else '',
+                                     'is_weekend' if day.weekday() in [5, 6] else '',
                                      char))
         rows.append(format_html('<tr class="entity_row"><th class="entity_name"><a href="{}">{}</a></th>{}</tr>',
                                 entity.get_absolute_url(),

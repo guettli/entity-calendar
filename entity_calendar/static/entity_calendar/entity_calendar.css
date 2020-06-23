@@ -21,3 +21,7 @@ tr.entity_row:nth-child(odd) {
 .entity_name {
     text-align: left;
     }
+
+.is_weekend {
+    color: lightgrey;
+}
